@@ -103,7 +103,7 @@ export class MigrationExecutor {
         // variable to store all migrations we did successefuly
         const successMigrations: Migration[] = [];
 
-        // find all migrations that needs to be executed
+        // find all migrations that need to be executed
         const pendingMigrations = allMigrations.filter(migration => {
             // check if we already have executed migration
             const executedMigration = executedMigrations.find(executedMigration => executedMigration.name === migration.name);
@@ -132,7 +132,7 @@ export class MigrationExecutor {
         this.connection.logger.logSchemaBuild(`${allMigrations.length} migrations were found in the source code.`);
         if (lastTimeExecutedMigration)
             this.connection.logger.logSchemaBuild(`${lastTimeExecutedMigration.name} is the last executed migration. It was executed on ${new Date(lastTimeExecutedMigration.timestamp).toString()}.`);
-        this.connection.logger.logSchemaBuild(`${pendingMigrations.length} migrations are new migrations that needs to be executed.`);
+        this.connection.logger.logSchemaBuild(`${pendingMigrations.length} migrations are new migrations that need to be executed.`);
 
         // start transaction if its not started yet
         let transactionStartedByUs = false;
